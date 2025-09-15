@@ -1,66 +1,37 @@
+import codigos
+
 def morse():
-    
-    morse = {' ':'',
-             'a':'.-',
-             'b':'-...',
-             'c':'-.-.',
-             'd':'-..',
-             'e':'.',
-             'f':'..-.',
-             'g':'--.',
-             'h':'....',
-             'i':'..',
-             'j':'.---',
-             'k':'-.-',
-             'l':'.-..',
-             'm':'--',
-             'n':'-.',
-             'o':'---',
-             'p':'.--.',
-             'q':'--.-',
-             'r':'.-.',
-             's':'...',
-             't':'-',
-             'u':'..-',
-             'v':'...-',
-             'w':'.--',
-             'x':'-..-',
-             'y':'-.--',
-             'z':'--..',
-             '1':'.----',
-             '2':'..---',
-             '3':'...--',
-             '4':'....-',
-             '5':'.....',
-             '6':'-....',
-             '7':'--...',
-             '8':'---..',
-             '9':'----.',
-             '0':'------'}
+    resposta = ""
 
-    print('|0 - Alfanumérico -> Morse, 1 - Morse -> Alfanumérico |')
-    i = int(input('Digite 0 ou 1: '))
-    
-    resposta = ''
-    
+    print("> Bem vindo ao (De)codificador!")
+    print(">")
+    print("> 0 - Alfanumérico -> Morse")
+    print("> 1 - Morse -> Alfanumérico")
+    print(">")
 
+    i = int(input("> Digite 0 ou 1: "))
+    
     if i == 0:
-        msg = input('Insira sua mensagem em Alfanumérico: ')
+        msg = input("> Insira sua mensagem em Alfanumérico: ")
         for letra in msg: 
-            resposta += morse.get(letra) + ' '
+            resposta += codigos.morse.get(letra) + " "
 
         resposta = resposta[:-1]
         
-    if i == 1:
-        msg = input('Insira sua mensagem em Morse: ')
-        lista_msg = msg.split(' ')
+    elif i == 1:
+        msg = input("> Insira sua mensagem em Morse: ")
+        lista_msg = msg.split(" ")
 
         for item in lista_msg:        
-            for chave, valor in morse.items():
+            for chave, valor in codigos.morse.items():
                 if valor == item:
                     resposta += chave
+    else:
+        return
  
-    return resposta
+    print(f"> {resposta}")
+
+morse()
 
 
 
